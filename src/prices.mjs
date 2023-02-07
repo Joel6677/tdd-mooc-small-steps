@@ -98,7 +98,6 @@ function createApp(database) {
       if (
         date2 &&
         date2.equals(holiday2) 
-
       ) {
         return true;
       }
