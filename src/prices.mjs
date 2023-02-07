@@ -29,7 +29,7 @@ function createApp(database) {
     }
   }
 
-  function convert(dateString) {}
+  function convert(dateString) {return dateString}
   
 
   function calculateCost(age, type, date, baseCost) {
