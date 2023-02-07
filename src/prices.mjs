@@ -30,7 +30,8 @@ function createApp(database) {
   }
 
   function convert(dateString) {
-    if (dateString instanceof Date) {return dateString} 
+    if (dateString instanceof Date) {
+      return dateString} 
   }
   
   function calculateCost(age, type, date, baseCost) {
