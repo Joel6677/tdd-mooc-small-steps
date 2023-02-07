@@ -33,7 +33,7 @@ function createApp(database) {
     if (dateString instanceof Date) {
       return dateString
     } else {
-      
+      return dateString
     } 
   }
   
