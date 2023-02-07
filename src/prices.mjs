@@ -32,7 +32,7 @@ function createApp(database) {
   function convert(dateString) {
     if (dateString instanceof Date) {
       return dateString.toTemporalInstant()
-      .toZonedDateTimeISO("UTC")
+      .toZonedDateTimeISO("UTC").toPlainDate()
     } else {
       return dateString
     } 
