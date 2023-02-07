@@ -31,7 +31,6 @@ function createApp(database) {
 
   function convert(dateString) {if (dateString instanceof Date) {return dateString} }
   
-
   function calculateCost(age, type, date, baseCost) {
     if (type === "night") {
       return calculateCostForNightTicket(age, baseCost);
