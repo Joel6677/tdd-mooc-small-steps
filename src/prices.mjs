@@ -32,7 +32,6 @@ function createApp(database) {
   function convert(dateString) {
     if (dateString instanceof Date) {
     } else {
-      return dateString
     } 
   }
   
