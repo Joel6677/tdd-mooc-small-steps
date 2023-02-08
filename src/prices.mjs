@@ -89,8 +89,7 @@ function createApp(database) {
     for (let row of holidays) {
       let holiday = Temporal.PlainDate.from(row.holiday)
       if (
-        date2 &&
-        date2.equals(holiday)
+        date2 && date2.equals(holiday)
       ) {
         return true;
       }
