@@ -12,7 +12,7 @@ API.)
 Repeat this refactoring many times.
 
 Focus on doing as small changes as possible, so that all the tests will pass between every change. Make it your goal to
-change at most *2 lines* at a time. It's even possible to do this refactoring by changing only *1 line* at a time,
+change at most _2 lines_ at a time. It's even possible to do this refactoring by changing only _1 line_ at a time,
 though that will require some unconventional refactoring strategies and good familiarity with JavaScript, because then
 you can no longer change a function signature and all calls to that function at the same time. (In real life, changing
 1-3 lines at a time is normal.)
