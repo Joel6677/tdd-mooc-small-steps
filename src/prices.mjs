@@ -18,13 +18,15 @@ function createApp(database) {
     const age = req.query.age;
     const type = req.query.type;
     const baseCost = database.findBasePriceByType(type).cost;
-    const date = parsePlainDate(req.query.date);
+    const date = parseDate(req.query.date);
     const cost = calculateCost(age, type, date, baseCost);
     res.json({ cost });
   });
 
-  function parsePlainDate(dateString) { if (dateString) 
-    {return Temporal.PlainDate.from(dateString)}
+  function parseDate(dateString) {
+    if (dateString) {
+      return new Date(dateString);
+    }
   }
 
   function calculateCost(age, type, date, baseCost) {
@@ -74,15 +76,18 @@ function createApp(database) {
   }
 
   function isMonday(date) {
-    return date.dayOfWeek === 1;
+    return date.getDay() === 1;
   }
 
   function isHoliday(date) {
     const holidays = database.getHolidays();
     for (let row of holidays) {
-      let holiday = Temporal.PlainDate.from(row.holiday)
+      let holiday = new Date(row.holiday);
       if (
-        date && date.equals(holiday)
+        date &&
+        date.getFullYear() === holiday.getFullYear() &&
+        date.getMonth() === holiday.getMonth() &&
+        date.getDate() === holiday.getDate()
       ) {
         return true;
       }
@@ -94,3 +99,4 @@ function createApp(database) {
 }
 
 export { createApp };
+
