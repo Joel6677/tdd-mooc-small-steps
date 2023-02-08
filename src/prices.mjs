@@ -19,7 +19,6 @@ function createApp(database) {
     const type = req.query.type;
     const baseCost = database.findBasePriceByType(type).cost;
     const date = parseDate(req.query.date);
-    const date2 = parseDate(req.query.date);
     const cost = calculateCost(age, type, date, baseCost);
     res.json({ cost });
   });
@@ -30,9 +29,6 @@ function createApp(database) {
     }
   }
 
-  function parsePlainDate(dateString) {
-    if (dateString) {}    
-  }
   function calculateCost(age, type, date, baseCost) {
     if (type === "night") {
       return calculateCostForNightTicket(age, baseCost);
@@ -87,9 +83,7 @@ function createApp(database) {
     const holidays = database.getHolidays();
     for (let row of holidays) {
       let holiday = Temporal.PlainDate.from(row.holiday);
-      if (
-        date && date.equals(holiday) 
-      ) {
+      if (date && date.equals(holiday)) {
         return true;
       }
     }
